@@ -1,0 +1,93 @@
+@import "big_screen.css";
+
+body {
+    background-image: url(../images/background.jpg);
+    overflow: hidden;
+    font-family: 'Museo Sans', 'Verdana', sans-serif;
+}
+.abc {
+    position: absolute;
+    border: 9px solid rgba(0, 0, 0, 0.15);
+    width: calc(100% - 79px);
+    height: 96%;
+    top: 29px;
+    left: 29px;
+    border-radius: 18px 18px 0px 0px;
+    background-color: rgb(60, 68, 79);
+}
+.player2 {
+    position: absolute;
+    overflow: hidden;
+    height: 204px;
+    background-color: rgb(99, 114, 133);
+    transition: width 450ms ease-in-out 16ms;
+    border-radius: 0px 9px 9px 0px;
+    top: 184px;
+    left: 0px;
+    font-size: 17px;
+    width: 66px;
+}
+.board {
+    box-sizing: border-box;
+    position: absolute;
+    left: 69px;
+    top: 69px;
+    opacity: 1;
+    transform: matrix(0.810811, 0, 0, 0.810811, 875.676, 128.919);
+    transition: transform 450ms ease-in-out 16ms, opacity 650ms ease-in 1ms;
+}
+.hand {
+    transform: translate3d(0px, 0px, 0px);
+    position: absolute;
+    z-index: 60;
+    left: 0px;
+    top: 0px;
+}
+.bone1 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform-origin: 50% 50%;
+    background-image: url(../images/tiles.png);
+    background-position: 0px -84px;
+    background-size: 336px;
+    background-repeat: no-repeat;
+    transform: translate(0px, -17.5667px) rotate(0deg);
+    width: 36px;
+    height: 72px;
+    transition: transform 450ms ease-in-out 16ms;
+    opacity: 1;
+    border: 1px solid black;    
+}
+.bone2 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform-origin: 50% 50%;
+    background-image: url(../images/tiles.png);
+    background-position: -240px -84px;
+    background-size: 336px;
+    background-repeat: no-repeat;
+    transform: translate(55.2px, -18px) rotate(-90deg);
+    width: 36px;
+    height: 72px;
+    transition: transform 450ms ease-in-out 16ms;
+    opacity: 1;
+    border: 1px solid black;
+}
+.bone3 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform-origin: 50% 50%;
+    background-image: url(../images/tiles.png);
+    background-position: -96px -84px;
+    background-size: 336px;
+    background-repeat: no-repeat;
+    transform: translate(-55.3667px, -18px) rotate(-270deg);
+    width: 36px;
+    height: 72px;
+    transition: transform 450ms ease-in-out 16ms;
+    opacity: 1;
+    border: 1px solid black;
+}

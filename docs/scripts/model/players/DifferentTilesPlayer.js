@@ -1,11 +1,11 @@
-import AbstractPlayer from "./AbstractPlayer.js";
+import Player from "./Player.js";
 import Move from "../Move.js";
-import Position from "../Position.js";
+import {Position} from "../Position.js";
 
-export default class DifferentTilesPlayer extends AbstractPlayer {
+export default class DifferentTilesPlayer extends Player {
 
-    constructor(_name) {
-        super(_name);
+    constructor() {
+        super();
     }
 
     description() {
@@ -13,13 +13,13 @@ export default class DifferentTilesPlayer extends AbstractPlayer {
     }
 
     selectTileEmptyBoard() {
-        let t = this.getBestTile(this.getTiles());
+        let t = this.getBestTile(this.tiles);
         return new Move(t, Position.HEAD);
     }
 
     selectTileNonEmptyBoard(board) {
         let first = board[0].getFirstNumber();
-        let last = board.slice(-1).getSecondNumber();
+        let last = board[board.length - 1].getSecondNumber();
         let usableTiles = this.getPossibleTiles(first, last);
         let t = this.getBestTile(usableTiles);
         return new Move(t, t.hasNumber(first) ? Position.HEAD : Position.TAIL);
@@ -40,12 +40,11 @@ export default class DifferentTilesPlayer extends AbstractPlayer {
 
     getBestTile(list) {
         let poss = [];
-        let max = Number.MIN_VALUE;
+        let max = -1;
         for (let t of list) {
-            let temp = this.getTiles();
-            temp.remove(t);
+            let temp = this.tiles.filter(tile => !tile.equals(t));
             let map = this.compute(temp);
-            if (map.size == max) {
+            if (map.size === max) {
                 poss.push(t);
             }
             if (map.size > max) {
@@ -53,7 +52,7 @@ export default class DifferentTilesPlayer extends AbstractPlayer {
                 poss = [t];
             }
         }
-        poss.sort((a, b) => b.sum() == a.sum() ? (b.isDouble() ? 1 : -1) : b.sum() - a.sum());
+        poss.sort((a, b) => b.sum() === a.sum() ? (b.isDouble() ? 1 : -1) : b.sum() - a.sum());
         return poss.shift();
     }
 }

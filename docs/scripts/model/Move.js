@@ -9,7 +9,15 @@ export default class Move {
         return this.tile;
     }
 
+    setTile(tile) {
+        this.tile = tile;
+    }
+
     getPosition() {
         return this.position;
+    }
+
+    setPosition(position) {
+        this.position = position;
     }
 }

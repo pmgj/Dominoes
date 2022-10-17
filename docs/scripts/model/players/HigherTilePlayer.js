@@ -1,11 +1,10 @@
-import AbstractPlayer from "./AbstractPlayer.js";
+import Player from "./Player.js";
 import Move from "../Move.js";
-import Position from "../Position.js";
+import {Position} from "../Position.js";
 
-export default class HigherTilePlayer extends AbstractPlayer {
-
-    constructor(_name) {
-        super(_name);
+export default class HigherTilePlayer extends Player {
+    constructor() {
+        super();
     }
 
     description() {
@@ -13,14 +12,14 @@ export default class HigherTilePlayer extends AbstractPlayer {
     }
 
     selectTileEmptyBoard() {
-        let max = Math.max(...this.getTiles().map(t => t.sum()));
-        let t = this.getTiles().filter(a => a.sum() === max)[0];
+        let max = Math.max(...this.tiles.map(t => t.sum()));
+        let t = this.tiles.filter(a => a.sum() === max)[0];
         return new Move(t, Position.HEAD);
     }
 
     selectTileNonEmptyBoard(board) {
         let first = board[0].getFirstNumber();
-        let last = board.slice(-1).getSecondNumber();
+        let last = board[board.length - 1].getSecondNumber();
         let usableTiles = this.getPossibleTiles(first, last);
         let max = Math.max(...usableTiles.map(t => t.sum()));
         let t = usableTiles.filter(a => a.sum() === max)[0];

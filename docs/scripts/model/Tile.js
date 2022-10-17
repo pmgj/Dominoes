@@ -1,4 +1,5 @@
 export default class Tile {
+
     constructor(firstNumber, secondNumber) {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
@@ -31,6 +32,9 @@ export default class Tile {
     }
 
     equals(tile) {
+        if (!(tile instanceof Tile)) {
+            return false;
+        }
         return (tile.firstNumber === this.firstNumber && tile.secondNumber === this.secondNumber) || (tile.firstNumber === this.secondNumber && tile.secondNumber === this.firstNumber);
     }
 

@@ -1,0 +1,58 @@
+@media (min-width: 800px) {
+    .player1 {
+        --hmargin: 10px;
+        --vmargin: 10px;
+        --size: 48px;
+        --width: 420px;
+        --height: 85px;
+        position: fixed;
+        width: var(--width);
+        height: var(--height);
+        background-color: rgb(99, 114, 133);
+        transition: height 450ms ease-in-out 16ms;
+        border-radius: 9px 9px 0px 0px;
+        bottom: 0px;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 17px;
+    }
+    .player1 .photo {
+        position: absolute;
+        left: var(--hmargin);
+        top: var(--vmargin);
+        width: var(--size);
+        aspect-ratio: 1 / 1;
+        background-color: rgb(77, 88, 102);
+        border-radius: 9px;
+        background-image: url(../images/player1.png);
+        background-size: cover;
+    }
+    .player1 .points {
+        position: absolute;
+        right: var(--hmargin);
+        top: var(--vmargin);
+        width: var(--size);
+        aspect-ratio: 1 / 1;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        display: grid;
+        align-items: center;
+    }
+    .player1 .points .score {
+        font-size: 16px;
+    }
+    .player1 .points .text {
+        color: rgb(175, 183, 193);
+        font-size: 13px;
+    }
+    .player1 .current {
+        position: absolute;
+        overflow: hidden;
+        border-radius: 9px;
+        bottom: var(--vmargin);
+        left: var(--hmargin);
+        right: var(--hmargin);
+        height: 10%;
+        background-color: rgb(229, 86, 21);
+    }    
+}
