@@ -1,4 +1,4 @@
-export const Position = Object.freeze({
+export default Object.freeze({
     HEAD: "HEAD",
     TAIL: "TAIL"
 });

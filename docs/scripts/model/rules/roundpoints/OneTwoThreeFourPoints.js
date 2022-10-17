@@ -1,4 +1,4 @@
-import {Position} from "../../Position.js";
+import Position from "../../Position.js";
 import Tile from "../../Tile.js";
 
 export default class SumOpponentsPoints {

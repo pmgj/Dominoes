@@ -1,5 +1,5 @@
 import Dominoes from "../model/Dominoes.js";
-import {Position} from "../model/Position.js";
+import Position from "../model/Position.js";
 import Tile from "../model/Tile.js";
 
 class TestHand {

@@ -1,4 +1,4 @@
-import {ResultType} from "../../ResultType.js";
+import ResultType from "../../ResultType.js";
 
 export default class DrawDouble {
 

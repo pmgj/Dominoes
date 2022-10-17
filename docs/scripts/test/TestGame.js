@@ -1,6 +1,6 @@
 import Tile from "../model/Tile.js";
 import Result from "../model/Result.js";
-import {ResultType} from "../model/ResultType.js";
+import ResultType from "../model/ResultType.js";
 import SevenTileSingle from "../model/rules/SevenTileSingle.js";
 import RandomTilePlayer from "../model/players/RandomTilePlayer.js";
 import DifferentTilesPlayer from "../model/players/DifferentTilesPlayer.js";
@@ -59,12 +59,12 @@ class TestGame {
         let r;
         do {
             r = this.playTile();
-//            console.log(`Winner: ${r}`);
-//            console.log(`Board.: ${this.std.getBoard()}`);
-//            this.players.forEach(p => console.log(`${p.getPoints()}: ${p.getTiles()}`));
-//            if (this.rules.isUseStock()) {
-//                console.log(`Stock: ${this.stock}`);
-//            }
+            //            console.log(`Winner: ${r}`);
+            //            console.log(`Board.: ${this.std.getBoard()}`);
+            //            this.players.forEach(p => console.log(`${p.getPoints()}: ${p.getTiles()}`));
+            //            if (this.rules.isUseStock()) {
+            //                console.log(`Stock: ${this.stock}`);
+            //            }
         } while (r.getWinner() === ResultType.NONE);
         return r;
     }

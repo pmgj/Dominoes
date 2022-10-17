@@ -1,6 +1,6 @@
 import Player from "./Player.js";
 import Move from "../Move.js";
-import {Position} from "../Position.js";
+import Position from "../Position.js";
 
 export default class HigherTilePlayer extends Player {
     constructor() {
