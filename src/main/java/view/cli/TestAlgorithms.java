@@ -28,8 +28,8 @@ public class TestAlgorithms {
         for (int i = 0; i < 100; i++) {
             CLI cli = new CLI(players, rules, false);
             GameResult result = cli.playGame();
-            Integer p = scores.get(result.getGameWinner());
-            scores.set(result.getGameWinner(), p + 1);
+            Integer p = scores.get(result.gameWinner());
+            scores.set(result.gameWinner(), p + 1);
         }
         for (int i = 0; i < players.size(); i++) {
             Player p = players.get(i);
@@ -51,8 +51,8 @@ public class TestAlgorithms {
         for (int i = 0; i < 100; i++) {
             CLI cli = new CLI(players, rules, false);
             GameResult result = cli.playGame();
-            team1 += result.getGameWinner() == 0 ? 1 : 0;
-            team2 += result.getGameWinner() == 1 ? 1 : 0;
+            team1 += result.gameWinner() == 0 ? 1 : 0;
+            team2 += result.gameWinner() == 1 ? 1 : 0;
         }
         System.out.println(String.format("%20s: %d", p1.getClass().getSimpleName(), team1));
         System.out.println(String.format("%20s: %d", p2.getClass().getSimpleName(), team2));
@@ -70,8 +70,8 @@ public class TestAlgorithms {
         for (int i = 0; i < 100; i++) {
             CLI cli = new CLI(players, rules, false);
             GameResult result = cli.playGame();
-            team1 += result.getGameWinner() == 0 ? 1 : 0;
-            team2 += result.getGameWinner() == 1 ? 1 : 0;
+            team1 += result.gameWinner() == 0 ? 1 : 0;
+            team2 += result.gameWinner() == 1 ? 1 : 0;
         }
         System.out.println(String.format("%20s: %d", p1.getClass().getSimpleName(), team1));
         System.out.println(String.format("%20s: %d", p2.getClass().getSimpleName(), team2));
@@ -89,8 +89,8 @@ public class TestAlgorithms {
         for (int i = 0; i < 100; i++) {
             CLI cli = new CLI(players, rules, false);
             GameResult result = cli.playGame();
-            team1 += result.getGameWinner() == 0 ? 1 : 0;
-            team2 += result.getGameWinner() == 1 ? 1 : 0;
+            team1 += result.gameWinner() == 0 ? 1 : 0;
+            team2 += result.gameWinner() == 1 ? 1 : 0;
         }
         System.out.println(String.format("%20s: %d", p1.getClass().getSimpleName(), team1));
         System.out.println(String.format("%20s: %d", p2.getClass().getSimpleName(), team2));

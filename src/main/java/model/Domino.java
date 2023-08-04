@@ -15,7 +15,7 @@ public class Domino {
     private final DominoesRules rules;
     private final List<Player> players;
     private final List<Tile> stock;
-    private final GameResult result;
+    private GameResult result;
     private int turn;
 
     public Domino(DominoesRules _rules, List<Player> _players) {
@@ -57,7 +57,7 @@ public class Domino {
         if (_playersTiles == null) {
             throw new IllegalArgumentException("The players' tiles must not be null.");
         }
-        if (this.result.getRoundWinner() == RoundResult.NONE) {
+        if (this.result.roundWinner() == RoundResult.NONE) {
             throw new IllegalArgumentException("You are not allowed to distribute tiles right now.");
         }
         if (_playersTiles.size() != this.players.size()) {
@@ -80,13 +80,13 @@ public class Domino {
             this.stock.addAll(_stock);
         }
         this.board.clear();
-        if (this.result.getRoundWinner() == RoundResult.DRAW) {
+        if (this.result.roundWinner() == RoundResult.DRAW) {
             this.turn = this.rules.firstToPlay(this.players);
         }
     }
 
     public void resetRound() {
-        if (this.result.getRoundWinner() == RoundResult.NONE) {
+        if (this.result.roundWinner() == RoundResult.NONE) {
             throw new IllegalArgumentException("You are not allowed to distribute tiles right now.");
         }
         this.players.forEach(p -> p.resetTiles());
@@ -103,7 +103,7 @@ public class Domino {
                 p.addTile(this.stock.remove(0));
             }
         }
-        if (this.result.getRoundWinner() == RoundResult.DRAW) {
+        if (this.result.roundWinner() == RoundResult.DRAW) {
             this.turn = this.rules.firstToPlay(this.players);
         }
     }
@@ -135,7 +135,7 @@ public class Domino {
     }
 
     public void play(int player, Tile tile, Position position) {
-        if (this.result.getGameWinner() != GameResult.NONE) {
+        if (this.result.gameWinner() != GameResult.NONE) {
             return;
         }
         if (player != this.turn) {
@@ -155,11 +155,11 @@ public class Domino {
             if (!this.rules.continuePlaying(this.players)) {
                 gw = this.rules.getWinner(this.players);
             }
-            this.result.update(this.turn, gw);
+            this.result = new GameResult(this.turn, gw);
             return;
         }
         this.blockedGame();
-        if (this.result.getRoundWinner() != RoundResult.NONE) {
+        if (this.result.roundWinner() != RoundResult.NONE) {
             return;
         }
         this.turn = (this.turn + 1) % this.players.size();
@@ -190,8 +190,8 @@ public class Domino {
         if (!this.canAnyonePlay()) {
             RoundResult r = this.rules.blockedGame(this.players);
             int score = this.rules.drawRound(r);
-            this.turn = r.getWinner();
-            if (r.getWinner() != RoundResult.DRAW) {
+            this.turn = r.winner();
+            if (r.winner() != RoundResult.DRAW) {
                 this.players.get(this.turn).addScore(score);
             }
             if (!this.rules.continuePlaying(this.players)) {
@@ -199,7 +199,7 @@ public class Domino {
             }
             rw = this.turn;
         }
-        this.result.update(rw, gw);
+        this.result = new GameResult(rw, gw);
     }
 
     public void skip(int player) {

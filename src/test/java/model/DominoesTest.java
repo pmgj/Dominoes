@@ -106,7 +106,7 @@ public class DominoesTest {
                 d.skip(3);
                 d.skip(0);
                 d.play(1, new Tile(0, 3), Position.HEAD);
-                Assertions.assertEquals(1, d.getResult().getRoundWinner());
+                Assertions.assertEquals(1, d.getResult().roundWinner());
                 scores.run();
 
                 System.out.println("---------- Start Round ----------");
@@ -169,7 +169,7 @@ public class DominoesTest {
                 d.play(0, new Tile(1, 5), Position.TAIL);
                 d.skip(1);
                 d.play(2, new Tile(1, 1), Position.TAIL);
-                Assertions.assertEquals(2, d.getResult().getRoundWinner());
+                Assertions.assertEquals(2, d.getResult().roundWinner());
                 scores.run();
 
                 System.out.println("---------- Start Round ----------");
@@ -221,7 +221,7 @@ public class DominoesTest {
                 d.play(0, new Tile(2, 3), Position.TAIL);
                 d.play(1, new Tile(0, 1), Position.HEAD);
                 d.play(2, new Tile(0, 2), Position.HEAD);
-                Assertions.assertEquals(0, d.getResult().getRoundWinner());
+                Assertions.assertEquals(0, d.getResult().roundWinner());
                 scores.run();
 
                 System.out.println("---------- Start Round ----------");
@@ -272,7 +272,7 @@ public class DominoesTest {
                 d.play(0, new Tile(6, 6), Position.HEAD);
                 d.play(1, new Tile(3, 6), Position.HEAD);
                 d.play(2, new Tile(2, 3), Position.HEAD);
-                Assertions.assertEquals(RoundResult.DRAW, d.getResult().getRoundWinner());
+                Assertions.assertEquals(RoundResult.DRAW, d.getResult().roundWinner());
                 scores.run();
 
                 System.out.println("---------- Start Round ----------");
@@ -346,7 +346,7 @@ public class DominoesTest {
                 d.skip(3);
                 d.skip(0);
                 d.play(1, new Tile(0, 3), Position.HEAD);
-                Assertions.assertEquals(1, d.getResult().getRoundWinner());
+                Assertions.assertEquals(1, d.getResult().roundWinner());
                 scores.run();
         }
 
@@ -428,7 +428,7 @@ public class DominoesTest {
                 d.play(1, new Tile(1, 2), Position.HEAD);
                 d.play(2, new Tile(1, 1), Position.TAIL);
                 d.play(0, new Tile(1, 5), Position.TAIL);
-                Assertions.assertEquals(0, d.getResult().getRoundWinner());
+                Assertions.assertEquals(0, d.getResult().roundWinner());
                 Assertions.assertEquals(17, d.getPlayers().get(0).getScore());
                 scores.run();
 
@@ -489,7 +489,7 @@ public class DominoesTest {
                 d.getFromStock(0);
                 d.getFromStock(0);
                 d.getFromStock(0);
-                Assertions.assertEquals(1, d.getResult().getRoundWinner());
+                Assertions.assertEquals(1, d.getResult().roundWinner());
                 Assertions.assertEquals(50, d.getPlayers().get(1).getScore());
 
                 scores.run();

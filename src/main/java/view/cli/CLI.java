@@ -102,7 +102,7 @@ public class CLI {
             }
             print("Grabbing one from the stock.", ANSI_RED);
             this.pause();
-        } while (this.domino.getResult().getRoundWinner() == RoundResult.NONE);
+        } while (this.domino.getResult().roundWinner() == RoundResult.NONE);
         try {
             m.ifPresentOrElse(move -> this.domino.play(index, move.tile(), move.position()), () -> this.domino.skip(index));
         } catch (Exception ex) {
@@ -115,14 +115,14 @@ public class CLI {
         this.domino.resetRound();
         do {
             this.playTile();
-        } while (this.domino.getResult().getRoundWinner() == RoundResult.NONE);
+        } while (this.domino.getResult().roundWinner() == RoundResult.NONE);
         this.printEndRound();
     }
 
     public GameResult playGame() {
         do {
             this.playRound();
-        } while (this.domino.getResult().getGameWinner() == RoundResult.NONE);
+        } while (this.domino.getResult().gameWinner() == GameResult.NONE);
         return this.domino.getResult();
     }
 
@@ -137,7 +137,7 @@ public class CLI {
         GameResult r = cli.playGame();
         String s;
         if (rules.teamGame()) {
-            switch (r.getGameWinner()) {
+            switch (r.gameWinner()) {
                 case 0:
                     s = String.format("%s and %s won the game!", p1.getName(), p3.getName());
                     break;
@@ -149,7 +149,7 @@ public class CLI {
             }
         } else {
             s = String.format("%s won the game!",
-                    players.get(r.getGameWinner()).getName());
+                    players.get(r.gameWinner()).getName());
         }
         System.out.println(s);
     }

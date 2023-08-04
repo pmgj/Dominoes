@@ -6,7 +6,7 @@ public class NoDraw implements DrawRound {
 
     @Override
     public int execute(RoundResult r) {
-        return r.getScore();
+        return r.score();
     }
 
 }
