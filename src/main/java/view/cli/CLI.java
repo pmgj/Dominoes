@@ -104,7 +104,7 @@ public class CLI {
             this.pause();
         } while (this.domino.getResult().getRoundWinner() == RoundResult.NONE);
         try {
-            m.ifPresentOrElse(move -> this.domino.play(index, move.getTile(), move.getPosition()), () -> this.domino.skip(index));
+            m.ifPresentOrElse(move -> this.domino.play(index, move.tile(), move.position()), () -> this.domino.skip(index));
         } catch (Exception ex) {
             print(ex.getMessage(), ANSI_RED);
         }

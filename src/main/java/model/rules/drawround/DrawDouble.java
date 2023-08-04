@@ -10,13 +10,13 @@ public class DrawDouble implements DrawRound {
     public int execute(RoundResult r) {
         int score = r.getScore();
         switch (r.getWinner()) {
-            case RoundResult.DRAW:
+            case RoundResult.DRAW -> {
                 draw = true;
-                break;
-            default:
+            }
+            default -> {
                 score = draw ? 2 * r.getScore() : r.getScore();
                 draw = false;
-                break;
+            }
         }
         return score;
     }

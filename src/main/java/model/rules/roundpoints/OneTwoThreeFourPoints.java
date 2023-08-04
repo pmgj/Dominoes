@@ -11,8 +11,8 @@ public class OneTwoThreeFourPoints implements RoundPoints {
 
     @Override
     public int execute(Move move, List<Player> players, LinkedList<Tile> board) {
-        Tile lastTile = move.getTile();
-        Position lastPosition = move.getPosition();
+        Tile lastTile = move.tile();
+        Position lastPosition = move.position();
         int first, last;
         if (lastPosition == Position.HEAD) {
             Tile fTile = board.get(1);

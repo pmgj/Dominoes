@@ -1,20 +1,5 @@
 package model;
 
-public class Move {
+public record Move(Tile tile, Position position) {
 
-    private Tile tile;
-    private Position position;
-
-    public Move(Tile tile, Position position) {
-        this.tile = tile;
-        this.position = position;
-    }
-
-    public Tile getTile() {
-        return tile;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
 }

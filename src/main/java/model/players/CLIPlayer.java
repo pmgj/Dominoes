@@ -43,7 +43,7 @@ public class CLIPlayer extends AbstractPlayer {
     @Override
     public Move selectTileNonEmptyBoard(LinkedList<Tile> board) {
         Move m = this.selectTileEmptyBoard();
-        Tile tile = m.getTile();
+        Tile tile = m.tile();
         int head = board.peekFirst().getFirstNumber();
         int tail = board.peekLast().getSecondNumber();
         if (tile.hasNumber(head) && tile.hasNumber(tail) && head != tail) {
